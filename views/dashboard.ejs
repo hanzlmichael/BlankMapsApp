@@ -1,0 +1,12 @@
+<%- include('partials/head'); %>
+<%- include('partials/navbar'); %>
+
+<button>Vytvořit test</button>
+<div class="test-wrap">
+  <% for (let i = 0; i < tests.length; i++) { %>
+    <div class="test"><%= tests[i].title %></div> 
+  <%};%>  
+</div>
+
+  
+<%- include('partials/footer'); %>
