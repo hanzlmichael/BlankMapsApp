@@ -1,8 +1,13 @@
 <%- include('partials/head'); %>
 <%- include('partials/navbar'); %>
 
-<button>Vytvořit test</button>
+
 <div class="test-wrap">
+  <a id="add-new-test" href="/create">
+    <span class="material-symbols-outlined">add</span>
+    <span>nový test</span>
+  </a>
+
   <% for (let i = 0; i < tests.length; i++) { %>
     <div class="test"><%= tests[i].title %></div> 
   <%};%>  
