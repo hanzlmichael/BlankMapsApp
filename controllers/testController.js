@@ -9,3 +9,7 @@ module.exports.getTests = async (req, res) => {
 module.exports.postTest = (req, res) => {
 
 }
+
+module.exports.getNewTest = (req, res) => {
+  res.render('new')
+}

@@ -37,6 +37,6 @@ const author = {
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('index'));
 //app.get('/tests', requireAuth, (req, res) => res.render('tests', {tests}));
-app.use(testRoutes);
+app.use('/tests', testRoutes);
 app.use(authRoutes);
 //app.use(testRoutes)
