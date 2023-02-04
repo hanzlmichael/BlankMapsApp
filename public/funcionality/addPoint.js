@@ -28,7 +28,7 @@ function drawTempCircle(e) {
 function createCircle(e, isTemp) {
 	let coords = getCoords(e)
   let circle = new fabric.Circle({
-  	fill: 'red',
+  	fill: "rgba(245,36,47,0.9)",
     radius: 7,
     left: coords.x - 7,
     top: coords.y - 7,

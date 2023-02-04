@@ -65,7 +65,7 @@ function createPolyline(e, isTemp) {
       strokeWidth: 3,
       /* hasBorders: false,
       hasControls: false, */
-      stroke:'red', 
+      stroke:"rgba(245,36,47,0.9)", 
       fill:'transparent',
       strokeLineJoin: 'round',
       /* hoverCursor:'default',
@@ -77,7 +77,7 @@ function createPolyline(e, isTemp) {
   function createCircle(e, isTemp) {
     let coords = getCoords(e)
     let circle = new fabric.Circle({
-      fill: 'red',
+      fill: "rgba(245,36,47,0.9)",
       radius: 2,
       /* hasBorders: false,
       hasControls: false, */

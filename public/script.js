@@ -7,8 +7,9 @@ import { initMapIcons } from './components/initIcons.js'
 import { startDrawPolygon } from './funcionality/AddPolygon.js';
 import { startDrawLine } from './funcionality/addLine.js';
 import { startDrawPoint } from './funcionality/addPoint.js';
-import { initObjectDeleteIcon } from './globalPrototypeSetting.js'
-import { turnOfControls } from "./globalPrototypeSetting.js"
+import { initObjectDeleteIcon } from './globalPrototypeSetting.js';
+import { turnOfControls } from "./globalPrototypeSetting.js";
+import { resetZoom } from './components/map.js';
 
 export var canvas = new fabric.Canvas('canvas')
 
@@ -140,6 +141,7 @@ export function resizeMapToCanvas(data) {
     canvas.add(img)
     canvas.sendToBack(img)
     canvas.setDimensions({width:750, height:img.getScaledHeight()})
+    resetZoom();
   })
 }
 

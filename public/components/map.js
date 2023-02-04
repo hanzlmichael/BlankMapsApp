@@ -1,4 +1,5 @@
-import { canvas } from '../script.js'
+import { canvas } from '../script.js';
+import { test } from './questions.js'; 
 
 export function initMapUploadingFunctionality() {
   localStorage.setItem('maps', JSON.stringify(maps));
@@ -25,27 +26,48 @@ function observe() {
       if (mutation.type === 'childList') {
         if (mutation.addedNodes[0]) {          
           console.log(mutation.addedNodes[0].querySelector('input').value)
+          
           mutation.addedNodes[0].id = `map${mapCount++}`;
           let mapId = mutation.addedNodes[0].id;
-          console.log(mapId)
-          let element = mutation.addedNodes[0].querySelector('img')
+          //console.log(mapId)
+          //let element = mutation.addedNodes[0].querySelector('img')
           maps.push({
             mapId: mutation.addedNodes[0].id,
             src: mutation.addedNodes[0].querySelector('img').getAttribute('src')
           })
+
+          test.maps.push({
+            mapId: mutation.addedNodes[0].id,
+            src: mutation.addedNodes[0].querySelector('img').getAttribute('src')
+          })
+
           console.log('maps', maps)
           localStorage.setItem('maps', JSON.stringify(maps))
           console.log('added', mutation.addedNodes[0])
           let mapName = mutation.addedNodes[0].querySelector('input').value
           selectMap.add(new Option(`${mapName}`,`${mutation.addedNodes[0].id}`))
+          console.log(test);
+          console.log('test maps added: ', test.maps)
         }
         if (mutation.removedNodes[0]) {
+          debugger;
           console.log('removed', mutation.removedNodes[0]);
           let mapIdToDelete = mutation.removedNodes[0].id;
           selectMap.removeChild(selectMap.querySelector(`option[value="${mapIdToDelete}"]`));
           let maps = JSON.parse(localStorage.getItem('maps'));
           let filteredMaps = maps.filter(map => mapIdToDelete !== map.mapId);
           localStorage.setItem('maps', JSON.stringify(filteredMaps));
+          //test.maps = maps;
+
+          test.maps.find((el, index) => {
+            if (el.mapId ==  mapIdToDelete) {
+              test.maps.splice(index, 1);
+            }
+          })
+
+
+          console.log('test maps on remove: ',test.maps)
+          console.log(test)
         }
       }
     })
